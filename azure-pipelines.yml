@@ -43,5 +43,6 @@ steps:
       # Write your PowerShell commands here.
       
       Write-Host $(build.artifactStagingDirectory)
+      Get-ChildItem -Path $(build.artifactStagingDirectory)
       Write-Host (Get-ChildItem -Path $(build.artifactStagingDirectory))
       
