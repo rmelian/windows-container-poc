@@ -29,8 +29,11 @@ steps:
 
 - task: Docker@2
   inputs:
-    command: 'buildAndPush'
+    repository: '719353466243.dkr.ecr.us-east-1.amazonaws.com/vms/k8s-poc'
+    command: 'build'
     Dockerfile: '**/Dockerfile'
+
+
 
 - task: PowerShell@2
   inputs:
