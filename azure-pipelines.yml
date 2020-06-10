@@ -24,7 +24,7 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:PublishUrl="$(build.artifactStagingDirectory)"'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:PackageAsSingleFile=false /p:publishUrl="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
@@ -43,4 +43,4 @@ steps:
       # Write your PowerShell commands here.
       
       Write-Host "Hello World"
-      Write-Host "(ls -n $(build.artifactStagingDirectory)) -split '`n' -join ' '"
+      Get-ChildItem -Path $(build.artifactStagingDirectory)
