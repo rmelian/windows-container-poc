@@ -24,7 +24,7 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:PackageAsSingleFile=false /p:publishUrl="publish"'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:PackageAsSingleFile=false /p:publishUrl=".\publish"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
@@ -37,5 +37,5 @@ steps:
       Write-Host "listing local----------------------------------"
       ls
       Write-Host "listing publish folder----------------------------------"
-      ls publish
+      ls .\publish
      
