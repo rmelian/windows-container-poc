@@ -13,6 +13,7 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  imageName: 'k8s-poc'
 
 steps:
 - task: NuGetToolInstaller@1
@@ -29,7 +30,7 @@ steps:
 
 - task: Docker@2
   inputs:
-    repository: '719353466243.dkr.ecr.us-east-1.amazonaws.com/vms/k8s-poc'
+    repository: $(imageName)
     command: 'build'
     Dockerfile: '**/Dockerfile'
 
@@ -38,7 +39,7 @@ steps:
     awsCredentials: 'AWS Account'
     regionName: 'us-east-1'
     imageSource: 'imagename'
-    sourceImageName: 'dotnetdeploypoc'
+    sourceImageName: 'k8s-poc'
     repositoryName: '719353466243.dkr.ecr.us-east-1.amazonaws.com/vms/k8s-poc'
 
 - task: PowerShell@2
