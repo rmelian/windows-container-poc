@@ -33,13 +33,4 @@ steps:
     targetType: 'inline'
     script: |
       # Write your PowerShell commands here.
-      
-      Write-Host $(build.artifactStagingDirectory)
-     
-      ls $(build.artifactStagingDirectory)
-     
-      Write-Output (ls $(build.artifactStagingDirectory))
-      Get-ChildItem -Path $(build.artifactStagingDirectory)
-      Write-Host (Get-ChildItem -Path $(build.artifactStagingDirectory))
-      Write-Output (Get-ChildItem -Path $(build.artifactStagingDirectory))
-      
+      ls publish
