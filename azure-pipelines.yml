@@ -43,4 +43,4 @@ steps:
       # Write your PowerShell commands here.
       
       Write-Host "Hello World"
-      (ls -n bin\publish) -split "`n" -join " "
+      (ls -n $(build.artifactStagingDirectory)) -split "`n" -join " "
