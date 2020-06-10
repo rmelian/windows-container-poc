@@ -42,5 +42,6 @@ steps:
     script: |
       # Write your PowerShell commands here.
       
-      Write-Host "Hello World"
-      Get-ChildItem -Path $(build.artifactStagingDirectory)
+      Write-Host $(build.artifactStagingDirectory)
+      Write-Host (Get-ChildItem -Path $(build.artifactStagingDirectory))
+      
