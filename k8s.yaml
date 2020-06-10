@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vms-k8s-poc
+spec:
+  selector:
+    matchLabels:
+      app: vms-k8s-poc
+      tier: backend
+      track: stable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: vms-k8s-poc
+        tier: backend
+        track: stable
+    spec:
+      containers:
+      - name: dotnetdeploypoc
+        image: 719353466243.dkr.ecr.us-east-1.amazonaws.com/vms/k8s-poc:v2
+        ports:
+        - name: http
+          containerPort: 80
+        imagePullPolicy: Always       
+      nodeSelector:
+        kubernetes.io/os: windows
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vms-k8s-poc
+  namespace: default
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: vms-k8s-poc
+    tier: backend
+    track: stable
+  sessionAffinity: None
+  type: LoadBalancer
