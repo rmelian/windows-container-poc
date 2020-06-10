@@ -24,9 +24,13 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:PackageAsSingleFile=false /p:publishUrl=".\publish"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: Docker@2
+  inputs:
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
 
 - task: PowerShell@2
   inputs:
@@ -36,6 +40,4 @@ steps:
       
       Write-Host "listing local bin----------------------------------"
       ls bin
-      Write-Host "listing publish folder----------------------------------"
-      ls .\publish
      
