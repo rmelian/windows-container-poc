@@ -43,4 +43,4 @@ steps:
       # Write your PowerShell commands here.
       
       Write-Host "Hello World"
-      Write-Host (ls -n $(build.artifactStagingDirectory)) -split "`n" -join " "
+      Write-Host "(ls -n $(build.artifactStagingDirectory)) -split '`n' -join ' '"
