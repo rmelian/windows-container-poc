@@ -33,4 +33,9 @@ steps:
     targetType: 'inline'
     script: |
       # Write your PowerShell commands here.
+      
+      Write-Host "listing local----------------------------------"
+      ls
+      Write-Host "listing publish folder----------------------------------"
       ls publish
+     
