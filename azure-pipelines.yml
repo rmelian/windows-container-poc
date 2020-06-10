@@ -28,14 +28,6 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: CmdLine@2
-  inputs:
-    script: |
-      echo Listing build files
-      
-      ls $(build.artifactStagingDirectory)
-
-
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
@@ -43,6 +35,11 @@ steps:
       # Write your PowerShell commands here.
       
       Write-Host $(build.artifactStagingDirectory)
+      ls
+      ls $(build.artifactStagingDirectory)
+      Write-Output (ls)
+      Write-Output (ls $(build.artifactStagingDirectory))
       Get-ChildItem -Path $(build.artifactStagingDirectory)
       Write-Host (Get-ChildItem -Path $(build.artifactStagingDirectory))
+      Write-Output (Get-ChildItem -Path $(build.artifactStagingDirectory))
       
