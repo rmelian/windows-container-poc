@@ -39,7 +39,6 @@ steps:
     awsCredentials: 'AWS Account'
     regionName: 'us-east-1'
     imageSource: 'imagename'
-    sourceImageName: 'k8s-poc'
     sourceImageTag: '$(Build.BuildId)'
     repositoryName: '719353466243.dkr.ecr.us-east-1.amazonaws.com/vms/k8s-poc'
     pushTag: '$(Build.BuildId)'
