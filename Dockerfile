@@ -9,7 +9,8 @@
 # The `FROM` instruction specifies the base image. You are
 # extending the `microsoft/aspnet` image.
 
-FROM microsoft/aspnet
+FROM alpine:3.7
+#FROM microsoft/aspnet
 
 # The final instruction copies the site you published earlier into the container.
-COPY . /inetpub/wwwroot
+#COPY . /inetpub/wwwroot
