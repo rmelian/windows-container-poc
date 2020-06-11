@@ -9,8 +9,6 @@
 # The `FROM` instruction specifies the base image. You are
 # extending the `microsoft/aspnet` image.
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1
-#FROM microsoft/aspnet
-
+FROM microsoft/aspnet
 # The final instruction copies the site you published earlier into the container.
-#COPY . /inetpub/wwwroot
+COPY . /inetpub/wwwroot
