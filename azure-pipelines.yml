@@ -40,9 +40,9 @@ steps:
     regionName: 'us-east-1'
     imageSource: 'imagename'
     sourceImageName: 'k8s-poc'
-    sourceImageTag: '$(Build.BuildNumber)'
+    sourceImageTag: '$(Rev:.r)'
     repositoryName: '719353466243.dkr.ecr.us-east-1.amazonaws.com/vms/k8s-poc'
-    pushTag: '$(Build.BuildNumber)'
+    pushTag: '$(Rev:.r)'
 
 - task: PowerShell@2
   inputs:
