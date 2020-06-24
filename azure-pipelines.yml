@@ -45,6 +45,10 @@ steps:
     pushTag: '$(Build.BuildId)'
     outputVariable: '719353466243.dkr.ecr.us-east-1.amazonaws.com/vms/k8s-poc'
 
+- task: CmdLine@2
+  inputs:
+    script: 'echo.> $(Build.BuildId).txt'
+
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
@@ -52,5 +56,5 @@ steps:
       # Write your PowerShell commands here.
       
       Write-Host "listing local bin----------------------------------"
-      ls bin
+      ls 
      
