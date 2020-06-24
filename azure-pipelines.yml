@@ -47,7 +47,13 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'echo.> $(Build.BuildId).txt'
+    script: 'echo.> $(Pipeline.Workspace)/$(Build.BuildId).txt'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: '$(Build.BuildId).txt'
+    publishLocation: 'pipeline'
 
 - task: PowerShell@2
   inputs:
