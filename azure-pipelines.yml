@@ -45,22 +45,35 @@ steps:
     pushTag: '$(Build.BuildId)'
     outputVariable: '719353466243.dkr.ecr.us-east-1.amazonaws.com/vms/k8s-poc'
 
-- task: CmdLine@2
+- task: CopyFiles@2
   inputs:
-    script: 'echo $(Build.BuildId)> $(Pipeline.Workspace)/version.txt'
+    Contents: 'k8s.yaml'
+    TargetFolder: '${Build.ArtifactStagingDirectory}'
 
-- task: PublishPipelineArtifact@1
+- task: PublishBuildArtifacts@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)'
-    artifact: 'version.txt'
-    publishLocation: 'pipeline'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
 
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: |
-      # Write your PowerShell commands here.
+
+
+# - task: CmdLine@2
+#   inputs:
+#     script: 'echo $(Build.BuildId)> $(Pipeline.Workspace)/version.txt'
+
+# - task: PublishPipelineArtifact@1
+#   inputs:
+#     targetPath: '$(Pipeline.Workspace)'
+#     artifact: 'version.txt'
+#     publishLocation: 'pipeline'
+
+# - task: PowerShell@2
+#   inputs:
+#     targetType: 'inline'
+#     script: |
+#       # Write your PowerShell commands here.
       
-      Write-Host "listing local bin----------------------------------"
-      ls 
+#       Write-Host "listing local bin----------------------------------"
+#       ls 
      
