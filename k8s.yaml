@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: dotnetdeploypoc
-        image: 719353466243.dkr.ecr.us-east-1.amazonaws.com/vms/k8s-poc:v2
+        image: 719353466243.dkr.ecr.us-east-1.amazonaws.com/vms/k8s-poc:#{Build.BuildId}#
         ports:
         - name: http
           containerPort: 80
