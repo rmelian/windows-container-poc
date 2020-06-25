@@ -48,7 +48,8 @@ steps:
 - task: CopyFiles@2
   inputs:
     Contents: 'k8s.yaml'
-    TargetFolder: '${Build.ArtifactStagingDirectory}'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    OverWrite: true
 
 - task: PublishBuildArtifacts@1
   inputs:
