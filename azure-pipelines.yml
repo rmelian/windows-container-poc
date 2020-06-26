@@ -57,7 +57,12 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
-
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo Removing local docker images
+      docker rmi 719353466243.dkr.ecr.us-east-1.amazonaws.com/vms/k8s-poc:$(Build.BuildId)
+      docker rmi k8s-poc:$(Build.BuildId)
 
 # - task: CmdLine@2
 #   inputs:
